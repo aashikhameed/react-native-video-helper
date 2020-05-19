@@ -54,11 +54,13 @@ public class RNVideoHelperModule extends ReactContextBaseJavaModule {
         @Override
         public void onStart() {
           //Start Compress
+          sendProgress(reactContext, 0);
           Log.d("INFO", "Compression started");
         }
 
         @Override
         public void onSuccess() {
+          sendProgress(reactContext, 1);
           //Finish successfully
           pm.resolve(outputUri);
 
